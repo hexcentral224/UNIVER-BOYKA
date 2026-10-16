@@ -2,7 +2,7 @@
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,18&height=210&section=header&text=UNIVER%20BOYKA&fontSize=54&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=Bot%20WhatsApp%20ouvert%20%C3%A0%20tous%20%E2%80%A2%20bas%C3%A9%20sur%20CENTRAL-HEX&descSize=18&descAlignY=58" alt="UNIVER BOYKA" width="100%"/>
 
-<img src="https://i.ibb.co/zhWpqVpN/IMG-20261016-WA1921.jpg" alt="UNIVER BOYKA" width="200" height="200"/>
+<img src="https://i.ibb.co/zhWpqVpN/IMG-20261016-WA1921.jpg" alt="UNIVER BOYKA" width="1000" height="200"/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=900&color=00E5FF&center=true&vCenter=true&width=680&height=50&lines=Bot+WhatsApp+ouvert+%C3%A0+tous;Connecte+ton+num%C3%A9ro+avec+un+simple+code;Mod%C3%A9ration+%E2%80%A2+Protections+%E2%80%A2+Mentions+%E2%80%A2+Stickers;42+commandes+pr%C3%AAtes+%C3%A0+l%27emploi;Bas%C3%A9+sur+CENTRAL-HEX" alt="Animation de texte"/>
 
