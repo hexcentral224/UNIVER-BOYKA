@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>UNIVER BOYKA — Bot WhatsApp pour tous</title>
+<meta name="description" content="UNIVER BOYKA : bot WhatsApp pour les groupes. Connecte ton numéro en 1 minute avec un code de jumelage : modération, protections, stickers, mentions et plus.">
+<meta property="og:title" content="UNIVER BOYKA — Bot WhatsApp">
+<meta property="og:description" content="Gestion de groupe, modération, protections et stickers. Connecte ton numéro avec un code.">
+<meta property="og:image" content="https://i.ibb.co/zhWpqVpN/IMG-20261016-WA1921.jpg">
+<link rel="icon" href="https://i.ibb.co/zhWpqVpN/IMG-20261016-WA1921.jpg">
+<meta name="theme-color" content="#070914">
+<style>
+:root{--bg:#070914;--bg2:#0d1124;--card:rgba(255,255,255,.045);--line:rgba(255,255,255,.1);--txt:#eef1ff;--mut:#98a0c4;--c:#00e5ff;--v:#8a5bff;--m:#ff3daa;--ok:#2be28a;--err:#ff6b81;--grad:linear-gradient(100deg,var(--c),var(--v) 55%,var(--m));color-scheme:dark}
+@media (prefers-color-scheme:light){:root{--bg:#f3f5ff;--bg2:#e7ebff;--card:rgba(255,255,255,.8);--line:rgba(30,40,90,.14);--txt:#14183a;--mut:#555d86;color-scheme:light}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--txt);background:radial-gradient(900px 520px at 85% -10%,rgba(138,91,255,.28),transparent 60%),radial-gradient(800px 480px at 5% 10%,rgba(0,229,255,.18),transparent 60%),var(--bg);min-height:100vh;padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:980px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px 40px}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 22px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.08em}
+.brand img{width:38px;height:38px;border-radius:10px}
+.pill{font-size:.78rem;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:7px 12px;background:var(--card)}
+.pill b{color:var(--ok)}
+.hero{display:grid;gap:28px;align-items:center;grid-template-columns:1fr}
+@media(min-width:860px){.hero{grid-template-columns:1.05fr .95fr}}
+h1{font-size:clamp(2.1rem,6vw,3.6rem);line-height:1.04;margin:0 0 14px;letter-spacing:-.01em}
+.g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:var(--mut);font-size:1.05rem;line-height:1.6;margin:0 0 20px}
+.stats{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:6px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;min-width:104px}
+.stat b{display:block;font-size:1.35rem}.stat span{font-size:.75rem;color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:22px;backdrop-filter:blur(10px);box-shadow:0 18px 60px rgba(0,0,0,.28)}
+.card h2{margin:0 0 4px;font-size:1.2rem}.card .sub{margin:0 0 16px;color:var(--mut);font-size:.9rem}
+label{display:block;font-size:.8rem;color:var(--mut);margin-bottom:8px}
+input{width:100%;font-size:1.15rem;padding:15px 16px;border-radius:14px;border:1px solid var(--line);background:rgba(127,127,160,.08);color:var(--txt);outline:none;letter-spacing:.04em}
+input:focus{border-color:var(--c);box-shadow:0 0 0 3px rgba(0,229,255,.15)}
+button{width:100%;margin-top:14px;padding:15px;border:0;border-radius:14px;font-size:1rem;font-weight:800;color:#06101a;background:var(--grad);cursor:pointer;transition:transform .15s,filter .15s}
+button:hover{filter:brightness(1.08)}button:active{transform:scale(.985)}button:disabled{opacity:.6;cursor:wait}
+.msg{display:none;margin-top:14px;font-size:.92rem;text-align:center}.msg.ok{display:block;color:var(--ok)}.msg.err{display:block;color:var(--err)}
+.code{display:none;margin-top:18px;text-align:center}
+.digits{font-size:2.4rem;font-weight:900;letter-spacing:.2em;font-variant-numeric:tabular-nums}
+.copy{background:transparent;border:1px solid var(--line);color:var(--txt);margin-top:10px;font-weight:700}
+.steps{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.steps li{display:flex;gap:10px;align-items:flex-start;color:var(--mut);font-size:.9rem;line-height:1.45}
+.steps i{flex:none;width:22px;height:22px;border-radius:50%;background:var(--grad);color:#06101a;font-style:normal;font-weight:800;font-size:.75rem;display:grid;place-items:center}
+.steps b{color:var(--txt)}
+h3.sec{margin:46px 0 16px;font-size:1.4rem}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.feat{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;transition:transform .2s,border-color .2s}
+.feat:hover{transform:translateY(-3px);border-color:var(--v)}
+.feat .ic{font-size:1.6rem}.feat h4{margin:8px 0 6px;font-size:1.02rem}.feat p{margin:0;color:var(--mut);font-size:.88rem;line-height:1.5}
+.cmds{display:flex;flex-wrap:wrap;gap:8px}
+.cmds code{background:var(--card);border:1px solid var(--line);padding:7px 11px;border-radius:10px;font-size:.85rem}
+footer{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);text-align:center;color:var(--mut);font-size:.85rem;line-height:1.8}
+footer a{color:var(--c);text-decoration:none}footer b{color:var(--txt)}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav>
+    <div class="brand"><img src="https://i.ibb.co/zhWpqVpN/IMG-20261016-WA1921.jpg" alt="" onerror="this.onerror=null;this.src='/assets/logo.png'"><span>UNIVER <span class="g">BOYKA</span></span></div>
+    <div class="pill">● <b id="onl">–</b> bots en ligne</div>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Le bot WhatsApp <span class="g">pour ton groupe</span>.</h1>
+      <p class="lead">Modération, protections, mentions, stickers… Connecte ton numéro en moins d'une minute avec un simple code, sans rien installer. Tout le monde peut avoir son bot.</p>
+      <div class="stats">
+        <div class="stat"><b id="cmd">41</b><span>commandes</span></div>
+        <div class="stat"><b id="slots">–</b><span>places libres</span></div>
+        <div class="stat"><b>.</b><span>préfixe</span></div>
+      </div>
+    </div>
+
+    <div class="card" id="connect">
+      <h2>Connecte ton numéro</h2>
+      <p class="sub">Entre ton numéro avec l'indicatif du pays, sans « + ».</p>
+      <label for="num">Numéro WhatsApp</label>
+      <input id="num" type="tel" inputmode="numeric" autocomplete="tel" placeholder="224663969365" maxlength="16">
+      <button id="go">Générer mon code</button>
+      <div class="msg" id="msg"></div>
+      <div class="code" id="codeBox">
+        <div class="digits g" id="digits">----</div>
+        <button class="copy" id="copy">📋 Copier le code</button>
+        <ul class="steps">
+          <li><i>1</i><span>Ouvre <b>WhatsApp</b> ▸ <b>Appareils connectés</b></span></li>
+          <li><i>2</i><span>Touche <b>Connecter un appareil</b></span></li>
+          <li><i>3</i><span>Choisis <b>Se connecter avec un numéro de téléphone</b></span></li>
+          <li><i>4</i><span>Saisis le code ci-dessus, puis écris <b>.menu</b></span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <h3 class="sec">Ce que le bot sait faire</h3>
+  <section class="grid">
+    <div class="feat"><div class="ic">🏰</div><h4>Gestion de groupe</h4><p>Ouvrir, fermer, expulser, nommer des admins, lien du groupe, demandes d'adhésion, purge des inactifs.</p></div>
+    <div class="feat"><div class="ic">⚖️</div><h4>Modération</h4><p>Avertissements (3 = expulsion), mute, bannissement automatique et suivi des sanctions.</p></div>
+    <div class="feat"><div class="ic">🛡️</div><h4>Protections</h4><p>Antilink, antibadword, antibot, antitag, antimention, antistiker, antidelete et anticall.</p></div>
+    <div class="feat"><div class="ic">📣</div><h4>Mentions</h4><p><code>.tagall</code> en une liste, <code>.tag</code> caché pour tous, <code>.hidetag</code> pour les admins.</p></div>
+    <div class="feat"><div class="ic">🎨</div><h4>Stickers &amp; médias</h4><p>Crée et renomme tes stickers, change la photo, récupère les vues uniques, capture un site.</p></div>
+    <div class="feat"><div class="ic">⚙️</div><h4>À ta façon</h4><p>Mode public ou privé, préfixe modifiable, réglages simples avec <code>.setting</code>.</p></div>
+  </section>
+
+  <h3 class="sec">Quelques commandes</h3>
+  <div class="cmds">
+    <code>.menu</code><code>.help</code><code>.tagall</code><code>.tag</code><code>.kick</code><code>.warn</code><code>.antilink on</code><code>.antibadword on</code><code>.open</code><code>.close</code><code>.stiker</code><code>.setting</code>
+  </div>
+
+  <footer>
+    Besoin d'aide ? <a href="https://wa.me/224663969365" target="_blank" rel="noopener">+224 663 969 365</a> · Créateur : <a href="https://wa.me/224662675862" target="_blank" rel="noopener">+224 662 675 862</a><br>
+    ✦ Propulsé par <b>CENTRAL-HEX</b> 🇬🇳 ✦
+  </footer>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const show = (t, x) => { const m = $('#msg'); m.className = 'msg ' + t; m.textContent = x; };
+let timer;
+async function post(u, b) {
+  const r = await fetch(u, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(b || {}) });
+  const d = await r.json().catch(() => ({}));
+  if (!r.ok) throw new Error(d.error || 'Erreur du serveur, réessaie.');
+  return d;
+}
+async function stats() {
+  try {
+    const s = await (await fetch('/api/stats')).json();
+    $('#onl').textContent = s.online ?? 0;
+    $('#cmd').textContent = s.commands ?? 41;
+    $('#slots').textContent = Math.max(0, (s.capacity || 0) - (s.total || 0));
+  } catch {}
+}
+stats(); setInterval(stats, 30000);
+
+$('#go').onclick = async () => {
+  const n = $('#num').value.replace(/\D/g, ''), b = $('#go');
+  $('#msg').className = 'msg'; $('#codeBox').style.display = 'none'; clearInterval(timer);
+  if (n.length < 8) return show('err', "Entre ton numéro complet avec l'indicatif (ex : 224663969365).");
+  b.disabled = true; b.textContent = 'Génération du code…';
+  try {
+    const { code } = await post('/api/pair', { number: n });
+    $('#digits').textContent = code; $('#codeBox').style.display = 'block';
+    show('ok', 'Code généré ! Saisis-le dans WhatsApp dans la minute.');
+    timer = setInterval(async () => {
+      try {
+        const s = await (await fetch('/api/pair/status?number=' + n)).json();
+        if (s.connected) { clearInterval(timer); show('ok', '🎉 Connecté ! Écris .menu dans WhatsApp.'); stats(); }
+      } catch {}
+    }, 3000);
+  } catch (e) { show('err', e.message); }
+  b.disabled = false; b.textContent = 'Générer un nouveau code';
+};
+$('#num').addEventListener('keydown', e => { if (e.key === 'Enter') $('#go').click(); });
+$('#copy').onclick = async () => {
+  try { await navigator.clipboard.writeText($('#digits').textContent.replace(/\W/g, '')); $('#copy').textContent = '✅ Copié !'; setTimeout(() => $('#copy').textContent = '📋 Copier le code', 1800); } catch {}
+};
+</script>
+</body>
+</html>
